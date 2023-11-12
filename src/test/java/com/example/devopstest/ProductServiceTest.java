@@ -1,0 +1,33 @@
+package com.example.devopstest;
+
+import com.example.devopstest.entities.Product;
+import com.example.devopstest.entities.Stock;
+import com.example.devopstest.interfaces.IProductService;
+import org.junit.jupiter.api.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+@SpringBootTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class ProductServiceTest
+{
+
+    @Autowired
+    IProductService productService;
+
+
+    @Test
+    @Order(1)
+    public void testRetrieveAllProducts()
+    {
+        List<Product> products = productService.retrieveAllProducts();
+        Assertions.assertEquals(0, products.size());
+    }
+
+
+}
