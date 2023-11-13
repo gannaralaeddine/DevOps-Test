@@ -1,11 +1,17 @@
+# Get an image of jdk from docker hub
 FROM openjdk:8-jdk-alpine
 
 COPY ./target/Devops-Test-1.0.jar /usr/app/
 
 WORKDIR /usr/app
 
+# Expose the application port
 EXPOSE 8089
 
-RUN sh -c 'touch demo-docker-0.0.1-SNAPSHOT.jar'
+# Create the .jar file in target folder
+ADD target/Devops-Test.jar Devops-Test.jar
 
+RUN sh -c 'touch Devops-Test-1.0.jar'
+
+# Get the .jar file from target and put it into the docker image
 ENTRYPOINT ["java","-jar","Devops-Test-1.0.jar"]
