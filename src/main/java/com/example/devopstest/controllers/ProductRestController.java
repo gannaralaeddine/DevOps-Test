@@ -3,15 +3,17 @@ package com.example.devopstest.controllers;
 import com.example.devopstest.entities.Product;
 import com.example.devopstest.interfaces.IProductService;
 import io.swagger.annotations.Api;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
-@CrossOrigin("*")
-@Api(tags = "GProducts Management")
+@Api(tags = "Products Management")
 @RequestMapping("/product")
+@CrossOrigin( origins = "*")
 public class ProductRestController
 {
     @Autowired
@@ -30,19 +32,19 @@ public class ProductRestController
     }
 
 
-    @PostMapping("/add-Product")
+    @PostMapping(value = "/add-product")
     @ResponseBody
-    public Product addProduct(@RequestBody Product p) {
-        return productService.addProduct(p);
+    public Product addProduct(@RequestBody Product product) {
+        return productService.addProduct(product);
     }
 
-    @DeleteMapping("/remove-Product/{product-id}")
+    @DeleteMapping("/delete-product/{product-id}")
     @ResponseBody
     public void removeProduct(@PathVariable("product-id") Long productId) {
         productService.deleteProduct(productId);
     }
 
-    @PutMapping("/modify-Product")
+    @PutMapping("/update-product")
     @ResponseBody
     public Product modifyProduct(@RequestBody Product p) {
         return productService.updateProduct(p);
