@@ -1,7 +1,7 @@
 package com.example.devopstest;
 
 import com.example.devopstest.entities.Product;
-import com.example.devopstest.entities.Stock;
+
 import com.example.devopstest.interfaces.IProductService;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
