@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @Api(tags = "Products Management")
 @RequestMapping("/product")
-@CrossOrigin( origins = "*")
+@CrossOrigin( origins = "http://localhost:4200")
 public class ProductRestController
 {
     @Autowired
@@ -35,7 +35,9 @@ public class ProductRestController
     @PostMapping(value = "/add-product")
     @ResponseBody
     public Product addProduct(@RequestBody Product p) {
-        return productService.addProduct(p);
+
+        Product persistentProduct = p;
+        return productService.addProduct(persistentProduct);
     }
 
     @DeleteMapping("/delete-product/{product-id}")
