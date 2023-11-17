@@ -34,9 +34,12 @@ public class ProductRestController
 
     @PostMapping(value = "/add-product")
     @ResponseBody
-    public Product addProduct(@RequestBody Product p) {
+    public Product addProduct(@RequestBody Product product) {
 
-        Product persistentProduct = p;
+        Product persistentProduct = new Product();
+        persistentProduct.setProductCode(product.getProductCode());
+        persistentProduct.setProductDescription(product.getProductDescription());
+        persistentProduct.setProductPrice(product.getProductPrice());
         return productService.addProduct(persistentProduct);
     }
 
