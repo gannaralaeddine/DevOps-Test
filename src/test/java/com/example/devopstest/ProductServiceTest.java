@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class ProductServiceTest
+class ProductServiceTest
 {
 
     @Autowired
@@ -23,7 +23,7 @@ public class ProductServiceTest
 
     @Test
     @Order(1)
-    public void testRetrieveAllProducts()
+    void testRetrieveAllProducts()
     {
         List<Product> products = productService.retrieveAllProducts();
         Assertions.assertEquals(0, products.size());
