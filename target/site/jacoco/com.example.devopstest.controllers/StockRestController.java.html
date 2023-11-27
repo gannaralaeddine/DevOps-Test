@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StockRestController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Devops-Test</a> &gt; <a href="index.source.html" class="el_package">com.example.devopstest.controllers</a> &gt; <span class="el_source">StockRestController.java</span></div><h1>StockRestController.java</h1><pre class="source lang-java linenums">package com.example.devopstest.controllers;
+
+import com.example.devopstest.entities.Stock;
+import com.example.devopstest.interfaces.IStockService;
+import io.swagger.annotations.Api;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@Api(tags = &quot;Stock Management&quot;)
+@RequestMapping(&quot;/stock&quot;)
+@CrossOrigin( origins = &quot;http://localhost:4200&quot;)
+<span class="fc" id="L15">public class StockRestController</span>
+{
+    @Autowired
+    IStockService stockService;
+
+    @GetMapping(&quot;/retrieve-all-stocks&quot;)
+    @ResponseBody
+    public List&lt;Stock&gt; getStocks() {
+<span class="nc" id="L23">        return stockService.retrieveAllStocks();</span>
+    }
+
+    @GetMapping(&quot;/retrieve-stock/{stock-id}&quot;)
+    @ResponseBody
+    public Stock retrieveStock(@PathVariable(&quot;stock-id&quot;) Long stockId) {
+<span class="nc" id="L29">        return stockService.retrieveStock(stockId);</span>
+    }
+
+    @PostMapping(&quot;/add-stock&quot;)
+    @ResponseBody
+    public Stock addStock(@RequestBody Stock s) {
+<span class="nc" id="L35">        return stockService.addStock(s);</span>
+    }
+
+    @DeleteMapping(&quot;/remove-stock/{stock-id}&quot;)
+    @ResponseBody
+    public void removeStock(@PathVariable(&quot;stock-id&quot;) Long stockId) {
+<span class="nc" id="L41">        stockService.deleteStock(stockId);</span>
+<span class="nc" id="L42">    }</span>
+
+    @PutMapping(&quot;/modify-stock&quot;)
+    @ResponseBody
+    public Stock modifyStock(@RequestBody Stock stock) {
+<span class="nc" id="L47">        return stockService.updateStock(stock);</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

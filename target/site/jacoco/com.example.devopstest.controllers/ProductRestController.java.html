@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductRestController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Devops-Test</a> &gt; <a href="index.source.html" class="el_package">com.example.devopstest.controllers</a> &gt; <span class="el_source">ProductRestController.java</span></div><h1>ProductRestController.java</h1><pre class="source lang-java linenums">package com.example.devopstest.controllers;
+
+import com.example.devopstest.entities.Product;
+import com.example.devopstest.interfaces.IProductService;
+import io.swagger.annotations.Api;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+<span class="fc" id="L12">@Slf4j</span>
+@RestController
+@Api(tags = &quot;Products Management&quot;)
+@RequestMapping(&quot;/product&quot;)
+@CrossOrigin( origins = &quot;http://localhost:4200&quot;)
+<span class="fc" id="L17">public class ProductRestController</span>
+{
+    @Autowired
+    IProductService productService;
+
+    @GetMapping(&quot;/retrieve-all-products&quot;)
+    @ResponseBody
+    public List&lt;Product&gt; getProducts() {
+<span class="nc" id="L25">        return productService.retrieveAllProducts();</span>
+    }
+
+    @GetMapping(&quot;/retrieve-product/{product-id}&quot;)
+    @ResponseBody
+    public Product retrieveRayon(@PathVariable(&quot;product-id&quot;) Long productId) {
+<span class="nc" id="L31">        return productService.retrieveProduct(productId);</span>
+    }
+
+
+    @PostMapping(value = &quot;/add-product&quot;)
+    @ResponseBody
+    public Product addProduct(@RequestBody Product product) {
+
+<span class="nc" id="L39">        Product persistentProduct = new Product();</span>
+<span class="nc" id="L40">        persistentProduct.setProductCode(product.getProductCode());</span>
+<span class="nc" id="L41">        persistentProduct.setProductDescription(product.getProductDescription());</span>
+<span class="nc" id="L42">        persistentProduct.setProductPrice(product.getProductPrice());</span>
+<span class="nc" id="L43">        return productService.addProduct(persistentProduct);</span>
+    }
+
+    @DeleteMapping(&quot;/delete-product/{product-id}&quot;)
+    @ResponseBody
+    public void removeProduct(@PathVariable(&quot;product-id&quot;) Long productId) {
+<span class="nc" id="L49">        productService.deleteProduct(productId);</span>
+<span class="nc" id="L50">    }</span>
+
+    @PutMapping(&quot;/update-product&quot;)
+    @ResponseBody
+    public Product updateProduct(@RequestBody Product product) {
+<span class="nc" id="L55">        return productService.updateProduct(product);</span>
+    }
+
+
+    @PutMapping(value = &quot;/assignProductToStock/{idProduct}/{idStock}&quot;)
+    public void assignProductToStock(@PathVariable(&quot;idProduct&quot;) Long idProduct, @PathVariable(&quot;idStock&quot;) Long idStock) {
+<span class="nc" id="L61">        productService.assignProductToStock(idProduct, idStock);</span>
+<span class="nc" id="L62">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

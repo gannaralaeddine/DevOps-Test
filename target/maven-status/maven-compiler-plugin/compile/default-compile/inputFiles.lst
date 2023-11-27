@@ -1,0 +1,11 @@
+C:\Users\ganna\IdeaProjects\Devops-Test\src\main\java\com\example\devopstest\entities\Product.java
+C:\Users\ganna\IdeaProjects\Devops-Test\src\main\java\com\example\devopstest\repositories\ProductRepository.java
+C:\Users\ganna\IdeaProjects\Devops-Test\src\main\java\com\example\devopstest\controllers\ProductRestController.java
+C:\Users\ganna\IdeaProjects\Devops-Test\src\main\java\com\example\devopstest\interfaces\IProductService.java
+C:\Users\ganna\IdeaProjects\Devops-Test\src\main\java\com\example\devopstest\interfaces\IStockService.java
+C:\Users\ganna\IdeaProjects\Devops-Test\src\main\java\com\example\devopstest\controllers\StockRestController.java
+C:\Users\ganna\IdeaProjects\Devops-Test\src\main\java\com\example\devopstest\services\StockServiceImpl.java
+C:\Users\ganna\IdeaProjects\Devops-Test\src\main\java\com\example\devopstest\entities\Stock.java
+C:\Users\ganna\IdeaProjects\Devops-Test\src\main\java\com\example\devopstest\repositories\StockRepository.java
+C:\Users\ganna\IdeaProjects\Devops-Test\src\main\java\com\example\devopstest\DevopsTestApplication.java
+C:\Users\ganna\IdeaProjects\Devops-Test\src\main\java\com\example\devopstest\services\ProductServiceImpl.java

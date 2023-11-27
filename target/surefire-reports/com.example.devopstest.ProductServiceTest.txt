@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.example.devopstest.ProductServiceTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.814 s <<< FAILURE! - in com.example.devopstest.ProductServiceTest
+testRetrieveAllProducts  Time elapsed: 0.814 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <2>
+	at com.example.devopstest.ProductServiceTest.testRetrieveAllProducts(ProductServiceTest.java:27)
+
