@@ -51,8 +51,8 @@ public class ProductRestController
 
     @PutMapping("/update-product")
     @ResponseBody
-    public Product modifyProduct(@RequestBody Product p) {
-        return productService.updateProduct(p);
+    public Product updateProduct(@RequestBody Product product) {
+        return productService.updateProduct(product);
     }
 
 
