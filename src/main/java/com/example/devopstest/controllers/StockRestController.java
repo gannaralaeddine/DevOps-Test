@@ -36,15 +36,15 @@ public class StockRestController
         return stockService.addStock(s);
     }
 
-    @DeleteMapping("/remove-stock/{stock-id}")
+    @DeleteMapping("/delete-stock/{stock-id}")
     @ResponseBody
-    public void removeStock(@PathVariable("stock-id") Long stockId) {
+    public void deleteStock(@PathVariable("stock-id") Long stockId) {
         stockService.deleteStock(stockId);
     }
 
-    @PutMapping("/modify-stock")
+    @PutMapping("/update-stock")
     @ResponseBody
-    public Stock modifyStock(@RequestBody Stock stock) {
+    public Stock updateStock(@RequestBody Stock stock) {
         return stockService.updateStock(stock);
     }
 

@@ -28,7 +28,7 @@ public class ProductRestController
 
     @GetMapping("/retrieve-product/{product-id}")
     @ResponseBody
-    public Product retrieveRayon(@PathVariable("product-id") Long productId) {
+    public Product retrieveProduct(@PathVariable("product-id") Long productId) {
         return productService.retrieveProduct(productId);
     }
 
@@ -46,7 +46,7 @@ public class ProductRestController
 
     @DeleteMapping("/delete-product/{product-id}")
     @ResponseBody
-    public void removeProduct(@PathVariable("product-id") Long productId) {
+    public void deleteProduct(@PathVariable("product-id") Long productId) {
         productService.deleteProduct(productId);
     }
 
