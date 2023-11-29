@@ -35,8 +35,18 @@ public class ProductServiceImpl implements IProductService
     }
 
     @Override
-    public Product updateProduct(Product product) {
-        return productRepository.save(product);
+    public Product updateProduct(Long productId, Product product)
+    {
+        Product existingProduct = productRepository.findById(productId).orElse(null);
+
+        if (existingProduct != null)
+        {
+            existingProduct.setProductCode(product.getProductCode());
+            existingProduct.setProductDescription(product.getProductDescription());
+            existingProduct.setProductPrice(product.getProductPrice());
+            return productRepository.save(existingProduct);
+        }
+        return null;
     }
 
     @Override

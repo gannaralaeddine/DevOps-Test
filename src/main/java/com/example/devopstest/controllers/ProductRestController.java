@@ -50,10 +50,10 @@ public class ProductRestController
         productService.deleteProduct(productId);
     }
 
-    @PutMapping("/update-product")
+    @PutMapping("/update-product/{product-id}")
     @ResponseBody
-    public Product updateProduct(@RequestBody Product product) {
-        return productService.updateProduct(product);
+    public Product updateProduct(@PathVariable("product-id") Long productId, @RequestBody Product product) {
+        return productService.updateProduct(productId, product);
     }
 
 

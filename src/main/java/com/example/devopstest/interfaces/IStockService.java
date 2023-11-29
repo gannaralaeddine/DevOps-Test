@@ -12,7 +12,7 @@ public interface IStockService
 
     void deleteStock(Long id);
 
-    Stock updateStock(Stock stock);
+    Stock updateStock(Long stockId, Stock stock);
 
     Stock retrieveStock(Long id);
 }
