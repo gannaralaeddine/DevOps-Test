@@ -14,7 +14,6 @@ import java.util.List;
 @Api(tags = "Products Management")
 @RequestMapping("/product")
 //@CrossOrigin( origins = "http://localhost:4200")
-@CrossOrigin( origins = "*")
 public class ProductRestController
 {
     @Autowired
